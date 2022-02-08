@@ -79,27 +79,29 @@ namespace AssignmentAppSecurity
 
         }
 
-        protected void bth_checkPassword_Click_Click(object sender, EventArgs e)
-        {
-            // implement codes for the button event
-            // Extract data from textbox
-            string scores = checkPassword(tb_password.Text);
+        //protected void bth_checkPassword_Click_Click(object sender, EventArgs e)
+        //{
+        //    // implement codes for the button event
+        //    // Extract data from textbox
+        //    string scores = checkPassword(tb_password.Text);
             
             
-            lbl_pwdchecker.Text = "Status : " + scores;
-            if (scores != " ")
-            {
-                lbl_pwdchecker.ForeColor = Color.Red;
-                return ;
-            }
+        //    //lbl_pwdchecker.Text = "Status : " + scores;
+        //    if (scores != " ")
+        //    {
+        //        lbl_pwdchecker.ForeColor = Color.Red;
+        //        return ;
+        //    }
 
-            else
-            {
-                lbl_pwdchecker.ForeColor = Color.Green;
-                lbl_pwdchecker.Text = "Status : " + "Perfect";
-            }
+        //    else
+        //    {
+        //        lbl_pwdchecker.ForeColor = Color.Green;
+        //        lbl_pwdchecker.Text = "Status : " + "Perfect";
+        //    }
             
-        }
+        //}
+
+
         protected bool createAccount()
         {
            
@@ -186,7 +188,7 @@ namespace AssignmentAppSecurity
         }
         protected void btn_submit_click(object sender, EventArgs e)
         {
-            string pwd = tb_password.Text.ToString().Trim(); ;
+            string pwd = HttpUtility.HtmlEncode( tb_password.Text.ToString().Trim()) ;
             RNGCryptoServiceProvider rng = new RNGCryptoServiceProvider();
             byte[] saltByte = new byte[8];
 
@@ -233,8 +235,8 @@ namespace AssignmentAppSecurity
             catch (Exception ex)
 
             {
-                ServerError.Text = "Somthign went Wrong";
-                //throw new Exception(ex.ToString());
+                //ServerError.Text = "Somthign went Wrong";
+              throw new Exception(ex.ToString());
             }
 
             finally { }

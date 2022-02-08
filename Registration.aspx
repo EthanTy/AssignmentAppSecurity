@@ -5,6 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>My registration</title>
+   
     <script type ="text/javascript">
         function validate() {
            
@@ -81,7 +82,9 @@
 <body>
     <form id="form1" runat="server">
         <div>
-            Registration<br />
+             <fieldset>
+            <legend>Registration</legend>
+            <br />
             First Name<asp:TextBox ID="tb_firstname" runat="server" Width="209px" onkeyup="javascript:validate()"></asp:TextBox>
             <br />
             Last Name<asp:TextBox ID="tb_lastname" runat="server" Width="209px" onkeyup="javascript:validate()"></asp:TextBox>
@@ -114,9 +117,14 @@
             <br />
             
             <asp:Button ID="bth_submit_Click" runat="server" OnClick="btn_submit_click" Text="Submit" disabled="disabled" />
+
+
             
+
             <asp:Label ID="ServerError" runat="server" Text =" "></asp:Label>
+                 </fieldset>
         </div>
     </form>
+    
 </body>
     </html>

@@ -191,7 +191,7 @@ namespace AssignmentAppSecurity
             //captchaResponse consist of the user click pattern. Behaviour analytics! AI :) 
             string captchaResponse = Request.Form["g-recaptcha-response"];
 
-            //To send a GET request to Google along with the response and Secret key.
+            //To send a GET request to Google along with the response and Secret score.
             HttpWebRequest req = (HttpWebRequest)WebRequest.Create
            (" https://www.google.com/recaptcha/api/siteverify?secret=6LdPEjkdAAAAAIOxuLfY4yXVp8dZ7I7zCB3IisKy &response=" + captchaResponse);
 
@@ -210,10 +210,12 @@ namespace AssignmentAppSecurity
                         //To show the JSON response string for learning purpose
                         //lbl_gScore.Text = jsonResponse.ToString();
 
-                        JavaScriptSerializer js = new JavaScriptSerializer();
+
 
                         //Create jsonObject to handle the response e.g success or Error
-                        //Deserialize Json
+                        //Deserialize Json'
+
+                        JavaScriptSerializer js = new JavaScriptSerializer();
                         MyObject jsonObject = js.Deserialize<MyObject>(jsonResponse);
 
                         //Convert the string "False" to bool false or "True" to bool true

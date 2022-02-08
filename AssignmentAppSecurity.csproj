@@ -72,6 +72,9 @@
       <DependentUpon>AssignmentDb.mdf</DependentUpon>
     </Content>
     <Content Include="Captcha.aspx" />
+    <Content Include="CustomError\HTTP408.html" />
+    <Content Include="CustomError\HTTP406.html" />
+    <Content Include="CustomError\HTTP405.html" />
     <Content Include="CustomError\GenericError.html" />
     <Content Include="CustomError\HTTP403.html" />
     <Content Include="CustomError\HTTP404.html" />
